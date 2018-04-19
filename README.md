@@ -1,7 +1,7 @@
 # Sumo_Ard_final
-Sumo bot (arduino)
-Use "Bluetooth RC Controller" app
-Control keys:
-  Head light button- Initial position
-  Tail light button- Weight shift
-  direction buttons- movement
+Sumo bot (arduino)<br>
+Use "Bluetooth RC Controller" app<br>
+Control keys:<br>
+---Head light button- Initial position<br>
+---Tail light button- Weight shift<br>
+---direction buttons- movement
