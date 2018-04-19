@@ -87,6 +87,7 @@ void turn(char* dir)              //turns 15 deg in dir direction
     twist=15;
   else
     twist=-15;
+  s.init_pos();
   s.set(20,s.get_pos(1),s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
   delay(400);
   s.set(s.get_pos(0),20,s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
@@ -99,6 +100,7 @@ void turn(char* dir)              //turns 15 deg in dir direction
   delay(1000);
   s.set(0,0,s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
   delay(1000);
+  s.init_pos();
 }
 
 int check()
@@ -121,7 +123,7 @@ int check()
   }
   return determinant;
 }
-  
+
 void setup()
 {
   s.connec(9,6,5,3,10,11);
@@ -142,23 +144,23 @@ void loop()
   {
     case 'F': // F, move forward
               Serial.print(det);
-              ft_walk(20,30,500);
+              ft_walk(500,15,30);
               det = check();
               break;
 
     case 'B': // B, move back
               Serial.print(det);
-              bk_walk(20,30,500);
+              bk_walk(500,15,30);
               det = check();
               break;
 
-    case 'L':// L, move wheels left
+    case 'L':// L, move left
               Serial.print(det);
               turn("left");
               det = check();
               break;
 
-    case 'R': // R, move wheels right
+    case 'R': // R, move right
               Serial.print(det);
               turn("right");
               det = check();
@@ -168,5 +170,7 @@ void loop()
               Serial.print(det);
               det = check();
               break;
+
+    default : break;
   }
 }
