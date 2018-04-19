@@ -1,5 +1,5 @@
 # Sumo_Ard_final
-Sumo bot (arduino)\n
+Sumo bot (arduino)
 Use "Bluetooth RC Controller" app
 Control keys:
   Head light button- Initial position
