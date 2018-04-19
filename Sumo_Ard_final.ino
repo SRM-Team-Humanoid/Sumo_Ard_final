@@ -118,23 +118,29 @@ int check()
       determinant = 'R';
     else if (dataIn == 'S')
       determinant = 'S';
+    else if (dataIn == 'W'||dataIn == 'w')
+      determinant = 'W';
+    else if (dataIn == 'U'||dataIn == 'u')
+      determinant = 'U';
     else
       determinant = 'N';
   }
   return determinant;
 }
 
+void wt_shift()
+{
+  s.set(20,s.get_pos(1),s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
+  delay(400);
+  s.set(s.get_pos(0),-20,s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
+  delay(500);
+}
 void setup()
 {
   s.connec(9,6,5,3,10,11);
   s.init_pos();
   Serial.begin(9600);
   delay(3000);
-  s.set(20,s.get_pos(1),s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
-  delay(400);
-  s.set(s.get_pos(0),-20,s.get_pos(2),s.get_pos(3),s.get_pos(4),s.get_pos(5));
-  delay(500);
-  
 }
 
 void loop()
@@ -169,6 +175,14 @@ void loop()
     case 'S': // S, stop
               Serial.print(det);
               det = check();
+              break;
+
+    case 'U': // U, weight shift
+              wt_shift();
+              break;
+
+    case 'W': // W, Init pos
+              s.init_pos();
               break;
 
     default : break;
